@@ -2,6 +2,7 @@
 
 from django.db import models
 from home.fields import BaseDictField
+from south.modelsinspector import add_introspection_rules
 
 class Account(models.Model):
     """
@@ -14,3 +15,5 @@ class Comment(models.Model):
     headers = BaseDictField()
     who = models.ForeignKey(Account)
     text = models.CharField(max_length=4096)
+
+add_introspection_rules([], ["^home\.fields\.BaseDictField"])
