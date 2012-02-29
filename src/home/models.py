@@ -12,7 +12,8 @@ class Account(models.Model):
 
 class Comment(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
-    headers = BaseDictField()
+    ip = models.CharField(max_length=32, blank=True)
+    user_agent = models.CharField(max_length=256, blank=True)
     who = models.ForeignKey(Account)
     text = models.CharField(max_length=4096)
 
